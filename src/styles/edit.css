@@ -3,14 +3,15 @@
   flex-direction: column;
   justify-content: left;
   align-items: left;
-  box-shadow: 0 0 0 4px #e5e5e5;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   border-radius: 8px;
-  padding: 0.5rem;
+  padding: 0.7rem;
+  background-color: white;
 }
 
 .input-tab > h2 {
   margin: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 
 .input-tab + .input-tab {
@@ -27,6 +28,7 @@
 .input-container > label {
   text-align: left;
   margin-top: 0.5rem;
+  position: relative;
 }
 
 .input-container > input {
@@ -45,4 +47,22 @@
 
 .two-inputs > div {
   width: 48%;
+}
+
+.recommended::after {
+  content: " (recommended)";
+  color: #999;
+  position: absolute;
+  font-size: 0.75rem;
+  bottom: 10%;
+  left: 19%;
+}
+
+.optional::after {
+  content: " (optional)";
+  color: #999;
+  position: absolute;
+  font-size: 0.75rem;
+  bottom: 10%;
+  left: 19%;
 }
