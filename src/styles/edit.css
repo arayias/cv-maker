@@ -1,0 +1,48 @@
+.input-tab {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  box-shadow: 0 0 0 4px #e5e5e5;
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.input-tab > h2 {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.input-tab + .input-tab {
+  margin-top: 1rem;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+}
+
+.input-container > label {
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+.input-container > input {
+  margin-top: 0.15rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 2px solid #e5e5e5;
+}
+
+.two-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: left;
+}
+
+.two-inputs > div {
+  width: 48%;
+}
