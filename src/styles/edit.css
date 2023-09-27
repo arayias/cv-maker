@@ -12,10 +12,18 @@
 .input-tab > h2 {
   margin: 0;
   margin-bottom: 0.2rem;
+  text-align: left;
 }
 
 .input-tab + .input-tab {
   margin-top: 1rem;
+}
+
+.input-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .input-container {
@@ -35,7 +43,8 @@
   margin-top: 0.15rem;
   padding: 0.5rem;
   border-radius: 4px;
-  border: 2px solid #e5e5e5;
+  border: none;
+  background-color: #f3f4f6;
 }
 
 .two-inputs {
@@ -65,4 +74,113 @@
   font-size: 0.75rem;
   bottom: 10%;
   left: 19%;
+}
+
+.chevron-btn {
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 15px;
+  padding: 0.5rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    background-color 0.2s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+.chevron-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.chevron-btn:active {
+  background-color: #d1d5db;
+}
+
+.open {
+  animation: open 0.2s ease-in-out;
+}
+
+@keyframes open {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.closed {
+  animation: close 0.3s ease-in-out forwards;
+}
+
+@keyframes close {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+    display: none;
+  }
+}
+
+.rotate {
+  transform: rotate(90deg);
+}
+
+.spacer {
+  height: 0.2rem;
+  width: 100%;
+  background-color: lightskyblue;
+  border-bottom: 0.5rem;
+}
+
+.individual-education {
+  text-align: left;
+  /* padding: 0.05rem; */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.individual-education:hover {
+  background-color: #f3f4f6;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-btn {
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 15px;
+  padding: 0.5rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    background-color 0.2s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+.add-btn:hover {
+  background-color: #e5e7eb;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em;
 }
