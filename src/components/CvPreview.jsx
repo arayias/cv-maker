@@ -1,4 +1,7 @@
 import "../styles/preview.css";
+import emailIcon from "../assets/email.svg";
+import phoneIcon from "../assets/phone.svg";
+import locationIcon from "../assets/location.svg";
 
 export default function CvPreview({ info, education, work }) {
   const { name, email, phone, address } = info;
@@ -7,9 +10,18 @@ export default function CvPreview({ info, education, work }) {
       <header>
         <h1>{name}</h1>
         <div className="contact-info">
-          <p>{email}</p>
-          <p>{phone}</p>
-          <p>{address}</p>
+          <div>
+            <img src={emailIcon}></img>
+            {email}
+          </div>
+          <div>
+            <img src={phoneIcon}></img>
+            {phone}
+          </div>
+          <div>
+            <img src={locationIcon}></img>
+            {address}
+          </div>
         </div>
       </header>
       <main id="cv-main">

@@ -27,6 +27,17 @@ header > h1 {
   margin-top: 1rem;
 }
 
+.contact-info > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.contact-info img {
+  width: 1rem;
+  margin-right: 0.5rem;
+}
+
 #cv-main {
   color: black;
 
