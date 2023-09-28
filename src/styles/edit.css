@@ -148,6 +148,7 @@
   text-align: left;
   /* padding: 0.05rem; */
   transition: background-color 0.2s ease-in-out;
+  min-height: 1rem;
 }
 
 .individual-education:hover {

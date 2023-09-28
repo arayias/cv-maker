@@ -5,9 +5,6 @@ import EditTab from "./components/EditTab";
 import CvPreview from "./components/CvPreview";
 
 function App() {
-  let educationCounter = 0;
-  let experienceCounter = 0;
-
   const [info, setInfo] = useState({
     name: "",
     email: "",
@@ -24,6 +21,52 @@ function App() {
       end: "2014",
     },
   ]);
+
+  const [work, setWork] = useState([
+    {
+      id: v4(),
+      company: "Company",
+      position: "Position",
+      start: "2014",
+      end: "2018",
+      location: "1234 Main street",
+    },
+  ]);
+
+  const handleCreateWork = ({ company, position, start, end, location }) => {
+    const id = v4();
+    setWork([
+      ...work,
+      {
+        id,
+        company,
+        position,
+        start,
+        end,
+        location,
+      },
+    ]);
+    return id;
+  };
+
+  const handleDeleteWork = (id) => {
+    setWork(work.filter((job) => job.id !== id));
+  };
+
+  const handleEditWork = (e, id) => {
+    console.log(e.target.name, e.target.value, id);
+    setWork(
+      work.map((job) => {
+        if (job.id === id) {
+          return {
+            ...job,
+            [e.target.name]: e.target.value,
+          };
+        }
+        return job;
+      }),
+    );
+  };
 
   const handleCreateEducation = ({ school, degree, start, end }) => {
     const id = v4();
@@ -74,12 +117,16 @@ function App() {
         <EditTab
           info={info}
           education={education}
+          work={work}
           handleChangeInfo={handleChangeInfo}
           handleCreateEducation={handleCreateEducation}
           handleDeleteEducation={handleDeleteEducation}
           handleEditEducation={handleEditEducation}
+          handleCreateWork={handleCreateWork}
+          handleDeleteWork={handleDeleteWork}
+          handleEditWork={handleEditWork}
         />
-        <CvPreview />
+        <CvPreview info={info} education={education} work={work} />
       </main>
     </>
   );

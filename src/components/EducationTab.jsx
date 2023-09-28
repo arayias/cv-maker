@@ -1,7 +1,7 @@
 import "../styles/edit.css";
 import { useState } from "react";
-import IndividualEducation from "./IndividualEducation";
 import Education from "./Education";
+import IndividualEducation from "./IndividualEducation";
 
 export default function EducationTab({
   education,

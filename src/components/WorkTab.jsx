@@ -1,67 +1,109 @@
 import "../styles/edit.css";
+import { useState } from "react";
+import Work from "./Work";
+import IndividualWork from "./IndividualWork";
 
-export default function WorkTab() {
+export default function WorkTab({
+  work,
+  handleCreateWork,
+  handleDeleteWork,
+  handleEditWork,
+}) {
+  console.log(work);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isEditing, setIsEditing] = useState({
+    open: false,
+    id: null,
+  });
+
+  const handleEdit = (e, id) => {
+    let currentId = id;
+    setIsOpen(true);
+
+    if (id === undefined || id === null) {
+      currentId = handleCreateWork({
+        company: "",
+        position: "",
+        start: "",
+        end: "",
+      });
+      setIsEditing({
+        open: true,
+        id: currentId,
+      });
+      console.log(currentId, isEditing.open);
+      return;
+    }
+
+    setIsEditing({
+      open: true,
+      id: currentId,
+    });
+  };
+
   return (
     <div className="input-tab">
-      <h2>Work Experience</h2>
-      <form>
-        <div className="input-container">
-          <label htmlFor="company">Company</label>
-          <input
-            type="text"
-            name="company"
-            id="company"
-            placeholder="Enter company name"
-          />
-        </div>
+      <div className="input-header">
+        <h2>Work Experience</h2>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className={`chevron-btn ${isOpen ? "rotate" : null}`}
+        >
+          v
+        </button>
+      </div>
 
-        <div className="input-container">
-          <label htmlFor="position">Position</label>
-          <input
-            type="text"
-            name="position"
-            id="position"
-            placeholder="Enter position"
-          />
-        </div>
-
-        <div className="two-inputs">
-          <div className="input-container">
-            <label className="recommended" htmlFor="startCompany">
-              Start
-            </label>
-            <input
-              type="text"
-              name="start"
-              id="start"
-              placeholder="Enter start date"
+      <div className={isOpen ? "open" : "closed"}>
+        {isEditing.open ? (
+          <>
+            <Work
+              work={work}
+              handleEditWork={handleEditWork}
+              handleDeleteWork={handleDeleteWork}
+              isEditing={isEditing}
+              setIsEditing={setIsEditing}
+              isOpen={isOpen}
+              setIsOpen={setIsOpen}
             />
-          </div>
-          <div className="input-container">
-            <label className="recommended" htmlFor="endCompany">
-              End
-            </label>
-            <input
-              type="text"
-              name="end"
-              id="end"
-              placeholder="Enter end date"
-            />
-          </div>
-        </div>
+            <div className="flex-row">
+              <button
+                className="add-btn"
+                onClick={() => {
+                  setIsEditing({
+                    open: false,
+                    id: null,
+                  });
+                }}
+              >
+                &#10003;
+              </button>
 
-        <div className="input-container">
-          <label className="optional" htmlFor="companyLocation">
-            Location
-          </label>
-          <input
-            type="text"
-            name="location"
-            id="companyLocation"
-            placeholder="Enter location"
-          />
-        </div>
-      </form>
+              <button
+                className="add-btn"
+                onClick={() => {
+                  console.log(`Deleting ${isEditing.id}`);
+                  handleDeleteWork(isEditing.id);
+                  setIsEditing({
+                    open: false,
+                    id: null,
+                  });
+                }}
+              >
+                &#10005;
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            {work.map((wr) => (
+              <IndividualWork key={wr.id} work={wr} handleEdit={handleEdit} />
+            ))}
+            <button className="add-btn" onClick={handleEdit}>
+              +
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 }

@@ -1,16 +1,18 @@
-import { useState } from "react";
 import PersonalInfo from "./PersonalInfo";
-import Education from "./Education";
 import EducationTab from "./EducationTab";
-import Work from "./WorkTab";
+import WorkTab from "./WorkTab";
 
 export default function EditTab({
   info,
   education,
+  work,
   handleChangeInfo,
   handleCreateEducation,
   handleDeleteEducation,
   handleEditEducation,
+  handleCreateWork,
+  handleDeleteWork,
+  handleEditWork,
 }) {
   return (
     <div className="edit-tab">
@@ -21,7 +23,12 @@ export default function EditTab({
         handleDeleteEducation={handleDeleteEducation}
         handleEditEducation={handleEditEducation}
       />
-      <Work />
+      <WorkTab
+        work={work}
+        handleCreateWork={handleCreateWork}
+        handleDeleteWork={handleDeleteWork}
+        handleEditWork={handleEditWork}
+      />
     </div>
   );
 }

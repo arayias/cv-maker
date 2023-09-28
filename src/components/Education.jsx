@@ -3,15 +3,13 @@ import "../styles/edit.css";
 export default function Education({
   education,
   handleEditEducation,
-  handleDeleteEducation,
   isEditing,
   isOpen,
-  setIsOpen,
 }) {
   const currentEducation = education.find((item) => item.id === isEditing.id);
   const { school, degree, start, end, location } = currentEducation;
   return (
-    <div className="input-tab">
+    <>
       <form className={isOpen ? "open" : "closed"}>
         <div className="input-container">
           <label htmlFor="school">School</label>
@@ -75,11 +73,11 @@ export default function Education({
             name="location"
             id="schoolLocation"
             placeholder="Enter location"
-            value={education.location}
+            value={location || ""}
             onChange={(e) => handleEditEducation(e, isEditing.id)}
           />
         </div>
       </form>
-    </div>
+    </>
   );
 }
