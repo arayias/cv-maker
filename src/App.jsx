@@ -54,7 +54,6 @@ function App() {
   };
 
   const handleEditWork = (e, id) => {
-    console.log(e.target.name, e.target.value, id);
     setWork(
       work.map((job) => {
         if (job.id === id) {
@@ -89,7 +88,6 @@ function App() {
   };
 
   const handleEditEducation = (e, id) => {
-    console.log(e.target.name, e.target.value, id);
     setEducation(
       education.map((edu) => {
         if (edu.id === id) {
@@ -108,7 +106,6 @@ function App() {
       ...info,
       [e.target.name]: e.target.value,
     });
-    console.log(info);
   };
   document.title = `${info.name} CV`;
   return (

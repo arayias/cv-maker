@@ -9,7 +9,6 @@ export default function WorkTab({
   handleDeleteWork,
   handleEditWork,
 }) {
-  console.log(work);
   const [isOpen, setIsOpen] = useState(false);
   const [isEditing, setIsEditing] = useState({
     open: false,
@@ -31,7 +30,6 @@ export default function WorkTab({
         open: true,
         id: currentId,
       });
-      console.log(currentId, isEditing.open);
       return;
     }
 
@@ -81,7 +79,6 @@ export default function WorkTab({
               <button
                 className="add-btn"
                 onClick={() => {
-                  console.log(`Deleting ${isEditing.id}`);
                   handleDeleteWork(isEditing.id);
                   setIsEditing({
                     open: false,

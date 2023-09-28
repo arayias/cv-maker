@@ -30,7 +30,7 @@ export default function EducationTab({
         open: true,
         id: currentId,
       });
-      console.log(currentId, isEditing.open);
+
       return;
     }
 
@@ -80,7 +80,6 @@ export default function EducationTab({
               <button
                 className="add-btn"
                 onClick={() => {
-                  console.log(`Deleting ${isEditing.id}`);
                   handleDeleteEducation(isEditing.id);
                   setIsEditing({
                     open: false,

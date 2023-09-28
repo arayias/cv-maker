@@ -1,5 +1,4 @@
 export default function Work({ work, handleEditWork, isEditing, isOpen }) {
-  console.log(work, isEditing);
   const currentWork = work.find((w) => w.id === isEditing.id);
   const { company, position, start, end, location } = currentWork;
   return (
