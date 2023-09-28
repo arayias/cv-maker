@@ -6,10 +6,10 @@ import CvPreview from "./components/CvPreview";
 
 function App() {
   const [info, setInfo] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    address: "",
+    name: "Jonathan Doe",
+    email: "dez@email.com",
+    phone: "99100100",
+    address: "peos",
   });
 
   const [education, setEducation] = useState([

@@ -5,4 +5,63 @@
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   max-height: 100vh;
   min-height: 75vh;
+  color: white;
+}
+
+header {
+  min-height: 4rem;
+  background-color: #07374d;
+  font-size: 0.7rem;
+  padding: 1rem;
+}
+
+header > h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.contact-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+#cv-main {
+  color: black;
+
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#cv-main section h2 {
+  margin-bottom: 1rem;
+  background-color: #eef1f3;
+  color: #07374d;
+}
+
+.cv-item {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  text-align: left;
+}
+
+.side-info {
+  color: gray;
+  margin-top: 0;
+}
+
+.side-info p {
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+.main-info {
+  margin: 0;
+}
+
+.main-info > h3 {
+  margin: 0;
+  font-size: 1.2rem;
 }
